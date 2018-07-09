@@ -1,0 +1,5 @@
+.mark_left{width:200px;height:320px;position:absolute;left:0;top:0;background:red;
+    filter: alpha(opacity:0);opacity: 0;}
+.mark_left{width:200px;height:320px;position:absolute;left:200px;top:0;background:red;
+    filter: alpha(opacity:0);opacity: 0;}
+.big_pic.prev{}

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>日历</title>
+    <style type="text/css">
+        img {width:50px;height:50px;}
+    </style>
+
+    <script>
+        function toDouble(n)
+        {
+            if(n<10)
+            {
+                return '0'+n;
+            }
+            else
+            {
+                return ''+n;
+            }
+        }
+        window.onload=function()
+        {
+            var oDiv1=document.getElementById('div1');
+            var oDiv2=document.getElementById('div2');
+            var oImg1=oDiv1.getElementsByTagName('img');
+            var oImg2=oDiv2.getElementsByTagName('img');
+            function tick()
+            {
+                var oDate=new Date();
+                var str2=toDouble(oDate.getFullYear())+toDouble(oDate.getMonth()+1)+toDouble(oDate.getDate())+toDouble(oDate.getDay());
+                var str1=toDouble(oDate.getHours())+toDouble(oDate.getMinutes())+toDouble(oDate.getSeconds());
+                for(var i=0;i<oImg1.length;++i)
+                {
+                    oImg1[i].src='images/'+str2.charAt(i)+'.png';
+                }
+                for(var i=0;i<oImg2.length;++i)
+                {
+                    oImg2[i].src='images/'+str1.charAt(i)+'.png';
+                }
+            }
+            setInterval(tick,1000);
+            tick();
+
+        }
+
+
+    </script>
+</head>
+<body style="background:black;color:white;font-size:50px;">
+<div id="div1">
+    <img src="images/0.png"/>
+    <img src="images/0.png"/>
+    <img src="images/0.png"/>
+    <img src="images/0.png"/>年
+    <img src="images/0.png"/>
+    <img src="images/0.png"/>月
+    <img src="images/0.png"/>
+    <img src="images/0.png"/>日<br/>
+    星期<img src="images/0.png"/>
+    <img src="images/0.png"/>
+</div>
+<div id="div2">
+    <img src="images/0.png" />
+    <img src="images/0.png" />
+    :
+    <img src="images/0.png" />
+    <img src="images/0.png" />
+    :
+    <img src="images/0.png" />
+    <img src="images/0.png" />
+</div>
+
+
+
+</body>
+</html>

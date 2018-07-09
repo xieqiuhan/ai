@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{background:#ccc;margin:10px auto;}
+        #ul2{padding:0;}
+        #ul2 li{float:left;list-style: none;padding:10px;}
+        img{width:400px;height:300px;}
+    </style>
+    <script>
+        window.onload=function()
+        {
+            var oUl=document.getElementById('ul2');
+            var oA=oUl.getElementsByTagName('a');
+            var oImg=document.getElementById('img1');
+            var oTxt=document.getElementById('txt1');
+
+            for(var i=0;i<oA.length;i++)
+            {
+                oA[i].onclick=function()
+                {
+                    oImg.setAttribute('src',this.getAttribute('href'));
+                    oTxt.value=this.getAttribute('title');
+                    return false;
+                }
+
+            }
+        }
+
+
+    </script>
+</head>
+<body>
+<h1>snapshots</h1>
+<ul id="ul2">
+    <li><a href="images/a.png" title="fegrrfearh" >fireworks</a> </li>
+    <li><a href="images/b.jpg" title="fvserhhtyhgrethtfet" >coffee</a></li>
+    <li><a href="images/c.jpg" title="hybhgfdth">rose</a></li>
+    <li><a href="images/d.jpg" title="lkiuojnyyuarh" >big ben</a></li>
+</ul>
+<br/><textarea id="txt1" rows="10" cols="40"></textarea><br/>
+<img src="images/1.jpg" id="img1"/>
+
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #parent{width:600px;height:20px;background:#ccc;position:relative;margin:10px auto;}
+        #div1{width:20px;height:20px;background:red;position:absolute;left:0;top:0;}
+        #div2{width:400px;height:400px;border:1px solid black;position:relative;overflow: hidden;}
+        #div3{position:absolute;left:0;top:0;padding:4px;}
+
+    </style>
+    <script>
+        window.onload=function()
+        {
+            var oParent=document.getElementById('parent');
+            var oDiv=document.getElementById('div1');
+            var oDiv2=document.getElementById('div2');
+            var oDiv3=document.getElementById('div3');
+            var disX=0;
+            oDiv.onmousedown=function(ev)
+            {
+                var oEvent=ev||event;
+
+                disX=oEvent.clientX-oDiv.offsetLeft;
+
+                document.onmousemove=function(ev)
+                {
+                    var oEvent=ev||event;
+                    var l=oEvent.clientX-disX;
+                    if(l<0)
+                    {
+                        l=0;
+                    }
+                    else if(l>oParent.offsetWidth-oDiv.offsetWidth)
+                    {
+                        l=oParent.offsetWidth-oDiv.offsetWidth;
+                    }
+
+                    oDiv.style.left=l+'px';
+
+                    var scale=l/(oParent.offsetWidth-oDiv.offsetWidth);
+                    document.title=scale;
+
+                    oDiv3.style.top=-scale*(oDiv3.offsetHeight-oDiv2.offsetHeight)+'px';
+
+                };
+                document.onmouseup=function()
+                {
+                    document.onmousemove=null;
+                    document.onmouseup=null;
+                }
+                return false;
+
+            }
+        }
+    </script>
+</head>
+<body>
+<div id="parent">
+    <div id="div1"></div>
+</div>
+<div id="div2">
+    <div id="div3">
+        Vulcan激光系统：从压缩器输出的激光束通过反射镜M1、离轴抛物面镜（OAP）聚焦。
+        在焦点之后设置有一个准直透镜L1，对光束进行准直，
+        然后使用反射镜M2将准直光束引导到信噪比测量光电探测器D1和D2上。
+        分光镜M3后的透射脉冲入射到D1，用于主脉冲的测量；
+        M3的反射脉冲经过反射镜M4、水盒（WC）之后入射到D2，用于前沿噪声的测量。
+        WC用于防止光电探测器损伤。为了发展聚变能源技术，
+        科学家们研制了高功率激光装置，用于中心点火和快点火等技术方案的研究。
+        利用超短超强激光脉冲打靶时，主脉冲之前的噪声信号如果超过一定强度，
+        就会破坏靶面并产生等离子体，产生复杂的不利影响。千焦耳级拍瓦激光在高能密度物理、
+        快点火、二次辐射源等重要前沿物理研究领域展现出了重要的应用前景。
+        与之相匹配的皮秒参数测量系统，用于输出脉冲参数的实时测量、运行状态实时监测。
+        其中信噪比是一项非常重要的技术指标。
+        为了获得超短超强的拍瓦激光，采用了光学参量啁啾脉冲放大(OPCPA)技术。
+        该技术的实现方法，是将欲放大的一束低能量飞秒宽带种子信号光脉冲，
+        通过正啁啾色散的方法在时域上展宽，展宽后的脉冲在时域上表现为啁啾脉冲。
+        然后用一束高能量纳秒级窄带泵浦光与展宽后的啁啾种子光在非线性晶体中进行参量耦合，
+        使种子光脉冲放大。放大之后的种子光脉冲再通过负啁啾色散的方法被压缩成飞秒脉冲输出。
+        基于神光II第九路激光系统升级改造的拍瓦激光系统，就是采用了OPCPA技术，实现1000J、1ps的脉冲输出。
+        目前国际上的拍瓦级激光系统，采用了基于光电探测器级联的纳秒段信噪比测量技术。
+        美国罗切斯特大学的OMEGA EP激光系统在2010年的CLEO文献中报道了1500J、10ps的纳秒段信噪比测量结果，
+        动态范围达到了108，
+    </div>
+</div>
+
+</body>
+</html>

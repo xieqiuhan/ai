@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{ margin:0;padding:0;list-style: none;}
+        #div1 {position:absolute;background:#ccc;width:80px;border:1px solid black;display:none;}
+    </style>
+    <script src="鼠标位置封装.js"></script>
+    <script>
+
+        document.oncontextmenu=function(ev)
+        {
+            var oEvent=ev||event;
+            var oDiv=document.getElementById('div1');
+            var pos=getPos(oEvent);
+
+            oDiv.style.display='block';
+            oDiv.style.left=pos.x+'px';
+            oDiv.style.top=pos.y+'px';
+
+            return false;
+        }
+
+        document.onclick=function()
+        {
+            var oDiv=document.getElementById('div1');
+
+            oDiv.style.display='none';
+        }
+    </script>
+</head>
+<body>
+<div id="div1">
+    <ul>
+        <li>梁思达</li>
+        <li>屎坨坨</li>
+        <li>臭粑粑</li>
+        <li>大傻逼</li>
+        <li>丑丑哒</li>
+    </ul>
+
+</div>
+
+</body>
+</html>

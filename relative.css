@@ -1,0 +1,4 @@
+p{border-style:solid ;border-width: thin; height:100px;width:100px;text-align: center;}
+p.red{background-color: red;position:relative;left:0;z-index: 10;}
+p.white{background-color: white;position:relative;bottom:100px;left:50px;z-index: 5;}
+p.blue{background-color: blue;position:relative;top:-200px;left:100px;z-index: 0;}

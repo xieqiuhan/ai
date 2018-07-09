@@ -1,0 +1,31 @@
+body{width:80%;margin-left:auto;margin-right:auto;font-family: "Trebuchet MS",Helvetica,Verdana,sans-serif;font-size:90%;line-height: 1.7em;}
+a:link{color:red;}
+a:visited{color:green;}
+a:hover{color:blue;text-decoration:underline;}
+a:active,a.focus{color:yellow;background-color:#ddd;text-decoration: underline;}
+#address{color:black;position:absolute;top:10px;right:5px;}
+#banding{position:relative;height:250px;margin-bottom:15px;background:yellow url("images/background.png");background-size:460px;background-repeat: repeat-x;}
+#main-content{width:65%;float:right;}
+#navigation{width:30%;float:left;list-style: none;margin:0;badding:0;border-bottom:1px solid black;}
+#navigation li{padding:6px 0 6px 35px; font-size:130%;font-family:Georgia,"Times New Roman",Times,sans-serif;border-top:1px solid black;background-image: url("images/logo.jpeg");background-repeat: no-repeat;
+background-position: left;background-size: 15px 15px;}
+#navigation a{text-decoration:none;}
+#tagline{color:black;position:fixed;top:190px;right:125px;}
+#copyright{clear:both;float:right;border-top:3px solid black;}
+.menu{width:100%;margin-bottom:3em;border-collapse: collapse;}
+.menu tbody td{border-bottom:1px solid black;}
+.menu thead th{color:blue;text-align: left;border-bottom:1px solid black;font-size:85%;}
+.menu tbody th{color:blue;text-align: left;border-bottom:1px solid black;width:50% }
+.menu tbody th em { font-size:90%;font-weight:normal;color:darkgreen;}
+#navigation li.current{color:darkred;font-style: italic;}
+.blurb{margin-bottom:1em;padding-bottom:30px;}
+.blurb blockquote{margin:1em 20px;font-style:italic;}
+.blurb cite{font-style: normal;}
+.blurb p.source{text-align: right;font-size: 90%;}
+#contact{border:none;margin:0;padding:}
+#contact ol{list-style: none;margin:0;padding:0;}
+#contact li{margin:.2em 0;float:left;width:100%;}
+#contact lable{width:30%;float:left;text-align: right;}
+#contact input,#contact select,#contact textarea{font-family:inherit;font-size:100%;}
+#contact legend{color:orangered;margin:auto 0;padding:0;
+}

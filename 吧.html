@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+       <title>Title</title>
+    </head>
+<body>
+<canvas id="canvas_a" ></canvas>
+<canvas id="canvas_b" ></canvas>
+<input type="button" id="btn" value="灰色滤镜">
+
+<script>
+        var acanvas = document.querySelector("#canvas_a");
+        var bcanvas = document.querySelector("#canvas_b");
+        var oBtn = document.querySelector("#btn");
+        var actx = acanvas.getContext("2d");
+        var bctx = bcanvas.getContext("2d");
+        var myImage = new Image();
+        myImage.src= "a.png";
+        //在图片加载完毕时，再drawImage，否则在绘制时，图片未完全加载
+        // 图片可能会不显示
+        myImage.onload = function () {
+                actx.drawImage(myImage, 0, 0, acanvas.width, acanvas.height);
+            };
+        // 点击按钮， 会产生一幅灰度图
+        oBtn.onclick = function () {
+                var imageData = actx.getImageData(0, 0, acanvas.width, acanvas.height);
+                var pixelData = imageData.data;
+                 // 读取到的每个像素会产生4个数据
+                //  分别是  r g b a   红色 绿色 蓝色  Alpha透明度（取值0-1）
+                for(var i = 0; i < pixelData.length; i += 4){
+
+                        var r = pixelData[i + 0];
+                        var g = pixelData[i + 1];
+                        var b = pixelData[i + 2];
+                        var a = pixelData[i + 3];
+
+                        var grey = r * 0.3 + g * 0.59 + b * 0.11;  // 灰度图 公式
+
+                        pixelData[i + 0] = grey;
+                        pixelData[i + 1] = grey;
+                        pixelData[i + 2] = grey;
+                    }
+                bctx.putImageData(imageData, 0, 0);
+            }
+</script>
+</body>
+</html>
